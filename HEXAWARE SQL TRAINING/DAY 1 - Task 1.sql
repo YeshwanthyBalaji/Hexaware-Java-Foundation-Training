@@ -93,5 +93,11 @@ INSERT INTO Payments (student_id, amount, payment_date) VALUES
 (9, 1000.00, '2024-09-18'),
 (10, 1000.00, '2024-09-19');
 
-show tables;
+SELECT * FROM Students;
+SELECT * FROM Teacher;
+SELECT * FROM Courses;
+SELECT * FROM Enrollments;
+SELECT * FROM Payments;
+
+
 
