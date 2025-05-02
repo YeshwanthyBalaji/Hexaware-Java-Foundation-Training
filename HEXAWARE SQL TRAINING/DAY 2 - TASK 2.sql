@@ -122,6 +122,12 @@ UPDATE Payments
 SET amount = 1500.000
 WHERE payment_id = 5;
 
+SELECT * FROM Students;
+SELECT * FROM Enrollments;
+SELECT * FROM Courses;
+SELECT * FROM Teacher;
+SELECT * FROM Payments;
+
 
 
 
