@@ -107,4 +107,10 @@ LEFT JOIN
 WHERE 
     Courses.course_id IS NULL;
 
+SELECT * FROM Students;
+SELECT * FROM Enrollments;
+SELECT * FROM Courses;
+SELECT * FROM Teacher;
+SELECT * FROM Payments;
+
 
