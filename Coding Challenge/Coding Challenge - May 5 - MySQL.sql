@@ -101,8 +101,9 @@ WHERE Name LIKE '%Doe%';
     
 -- 9.Retrieve the names of persons involved in open cases and closed cases.
 SELECT Victim.Name, Crime.Status
-FROM Victim
-JOIN Crime ON Crime.CrimeID = Victim.CrimeId
+FROM Crime
+JOIN Victim ON Crime.CrimeID = Victim.CrimeId
+JOIN Suspect ON Crime.CrimeID = Suspect.CrimeId
 WHERE Crime.Status IN ('Open','Closed');
     
 -- 10. List incident types where there are persons aged 30 or 35 involved. 
