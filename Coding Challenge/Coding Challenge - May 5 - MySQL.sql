@@ -118,8 +118,9 @@ WHERE Age IN (30, 35);
 -- 11. Find persons involved in incidents of the same type as 'Robbery'.
 SELECT 
 		Victim.Name
-FROM Victim
-JOIN Crime ON Victim.CrimeID = Crime.CrimeID
+FROM Crime
+JOIN Victim ON Victim.CrimeID = Crime.CrimeID
+JOIN Suspect ON Victim.CrimeID = Suspect.CrimeID
 WHERE IncidentType = 'Robbery';
     
 -- 12. List incident types with more than one open case. 
