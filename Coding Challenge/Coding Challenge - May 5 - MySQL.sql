@@ -90,7 +90,7 @@ FROM (
  -- 7.List incident types and their counts, only for open cases. 
 SELECT 
     IncidentType,
-    COUNT(CrimeID) AS Countt
+    COUNT(IncidentType) AS Countt
 FROM Crime
 WHERE Status = 'Open'
 GROUP BY IncidentType;
