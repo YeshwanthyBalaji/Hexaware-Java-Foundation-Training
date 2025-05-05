@@ -194,27 +194,17 @@ LEFT JOIN Suspect ON Crime.CrimeID = Suspect.CrimeID
 WHERE Suspect.SuspectID IS NULL;
 
 -- 18. List all cases where at least one incident is of type 'Homicide' and all other incidents are of type 'Robbery'. 
-SELECT CrimeID, IncidentType, IncidentDate, Location, Description
-FROM Crime
-WHERE CrimeID IN (
-    SELECT CrimeID
-    FROM Crime
-    GROUP BY CrimeID
-    HAVING COUNT(DISTINCT IncidentType) = 2
-       AND MAX(IncidentType = 'Homicide') = 1
-       AND SUM(IncidentType = 'Robbery') = COUNT(*) - 1
-);
+
+
 
 -- 19. Retrieve a list of all incidents and the associated suspects, showing suspects for each incident, or 'No Suspect' if there are none. 
 SELECT 
-    c.CrimeID, 
-    c.IncidentType, 
-    c.IncidentDate, 
-    c.Location, 
-    c.Description AS IncidentDescription, 
-    COALESCE(s.Name, 'No Suspect') AS SuspectName
-FROM Crime c
-LEFT JOIN Suspect s ON c.CrimeID = s.CrimeID;
+    c.CrimeID,
+    IF(s.Name IS NULL, 'No Suspect', s.Name) AS SuspectName
+FROM 
+    Crime c
+LEFT JOIN 
+    Suspect s ON c.CrimeID = s.CrimeID;
 
 -- 20.  List all suspects who have been involved in incidents with incident types 'Robbery' or 'Assault' 
 SELECT 
