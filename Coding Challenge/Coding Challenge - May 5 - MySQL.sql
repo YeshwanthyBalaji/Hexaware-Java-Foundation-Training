@@ -194,7 +194,9 @@ LEFT JOIN Suspect ON Crime.CrimeID = Suspect.CrimeID
 WHERE Suspect.SuspectID IS NULL;
 
 -- 18. List all cases where at least one incident is of type 'Homicide' and all other incidents are of type 'Robbery'. 
-
+SELECT CrimeID
+FROM Crime
+WHERE IncidentType IN ('Homicide','Robbery');
 
 
 -- 19. Retrieve a list of all incidents and the associated suspects, showing suspects for each incident, or 'No Suspect' if there are none. 
